@@ -4,10 +4,10 @@ public class Meteorite : MonoBehaviour
 {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		// ¿î¼®°ú Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®ÀÇ ÅÂ±×°¡ "Player"ÀÌ¸é
+		// ìš´ì„ê³¼ ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ì˜ íƒœê·¸ê°€ "Player"ì´ë©´
 		if ( collision.CompareTag("Player") )
 		{
-			// ¿î¼® »èÁ¦
+			// ìš´ì„ ì‚­ì œ
 			Destroy(gameObject);
 		}
 	}

@@ -3,20 +3,20 @@ using UnityEngine;
 public class ParallaxBackground : MonoBehaviour
 {
 	[SerializeField]
-	private	Transform	target;							// ÇöÀç ¹è°æ°ú ÀÌ¾îÁö´Â ¹è°æ
+	private	Transform	target;							// í˜„ì¬ ë°°ê²½ê³¼ ì´ì–´ì§€ëŠ” ë°°ê²½
 	[SerializeField]
-	private	float		scrollAmount = 14.06f;			// µÎ ¹è°æ »çÀÌÀÇ y °Å¸®
+	private	float		scrollAmount = 14.06f;			// ë‘ ë°°ê²½ ì‚¬ì´ì˜ y ê±°ë¦¬
 	[SerializeField]
-	private	float		moveSpeed = 3;					// ¹è°æÀÇ ÀÌµ¿ ¼Óµµ
+	private	float		moveSpeed = 3;					// ë°°ê²½ì˜ ì´ë™ ì†ë„
 	[SerializeField]
-	private	Vector3		moveDirection = Vector3.down;	// ¹è°æÀÇ ÀÌµ¿ ¹æÇâ
+	private	Vector3		moveDirection = Vector3.down;	// ë°°ê²½ì˜ ì´ë™ ë°©í–¥
 
 	private void Update()
 	{
-		// ¹è°æÀÌ moveDirection ¹æÇâÀ¸·Î moveSpeedÀÇ ¼Óµµ·Î ÀÌµ¿
+		// ë°°ê²½ì´ moveDirection ë°©í–¥ìœ¼ë¡œ moveSpeedì˜ ì†ë„ë¡œ ì´ë™
 		transform.position += moveDirection * moveSpeed * Time.deltaTime;
 
-		// ¹è°æÀÌ ¼³Á¤µÈ ¹üÀ§¸¦ ¹ş¾î³ª¸é À§Ä¡ Àç¼³Á¤
+		// ë°°ê²½ì´ ì„¤ì •ëœ ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ë©´ ìœ„ì¹˜ ì¬ì„¤ì •
 		if ( transform.position.y <= -scrollAmount )
 		{
 			transform.position = target.position - moveDirection * scrollAmount;

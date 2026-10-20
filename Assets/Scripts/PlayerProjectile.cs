@@ -4,12 +4,12 @@ public class PlayerProjectile : MonoBehaviour
 {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		// ¹ß»çÃ¼¿Í Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®ÀÇ ÅÂ±×°¡ "Enemy"ÀÌ¸é
+		// ë°œì‚¬ì²´ì™€ ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ì˜ íƒœê·¸ê°€ "Enemy"ì´ë©´
 		if ( collision.CompareTag("Enemy") )
 		{
-			// Ãæµ¹ÇÑ ¿ÀºêÁ§Æ® »èÁ¦ (Àû Ä³¸¯ÅÍ)
+			// ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ ì‚­ì œ (ì  ìºë¦­í„°)
 			Destroy(collision.gameObject);
-			// ÇÃ·¹ÀÌ¾î ¹ß»çÃ¼ ¿ÀºêÁ§Æ® »èÁ¦
+			// í”Œë ˆì´ì–´ ë°œì‚¬ì²´ ì˜¤ë¸Œì íŠ¸ ì‚­ì œ
 			Destroy(gameObject);
 		}
 	}

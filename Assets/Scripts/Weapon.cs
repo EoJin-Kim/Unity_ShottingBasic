@@ -3,21 +3,21 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 	[SerializeField]
-	private	GameObject	projectilePrefab;		// °ø°İÇÒ ¶§ »ı¼ºÇÏ´Â ¹ß»çÃ¼ ÇÁ¸®ÆÕ
+	private	GameObject	projectilePrefab;		// ê³µê²©í•  ë•Œ ìƒì„±í•˜ëŠ” ë°œì‚¬ì²´ í”„ë¦¬íŒ¹
 	[SerializeField]
-	private	float		attackRate = 0.1f;		// °ø°İ ¼Óµµ
+	private	float		attackRate = 0.1f;		// ê³µê²© ì†ë„
 
-	private	float		lastAttackTime = 0;     // ¸¶Áö¸· °ø°İ½Ã°£ Ã¼Å©
+	private	float		lastAttackTime = 0;     // ë§ˆì§€ë§‰ ê³µê²©ì‹œê°„ ì²´í¬
 
 	public void WeaponAction()
 	{
-		// ¸¶Áö¸· °ø°İÀ¸·ÎºÎÅÍ attackRate ½Ã°£¸¸Å­ Áö³ª¾ß °ø°İ °¡´É
+		// ë§ˆì§€ë§‰ ê³µê²©ìœ¼ë¡œë¶€í„° attackRate ì‹œê°„ë§Œí¼ ì§€ë‚˜ì•¼ ê³µê²© ê°€ëŠ¥
 		if ( Time.time - lastAttackTime > attackRate )
 		{
-			// ÇöÀç ÇÃ·¹ÀÌ¾î À§Ä¡(transform.position)¿¡ ¹ß»çÃ¼ ¿ÀºêÁ§Æ®¸¦ »ı¼º
+			// í˜„ì¬ í”Œë ˆì´ì–´ ìœ„ì¹˜(transform.position)ì— ë°œì‚¬ì²´ ì˜¤ë¸Œì íŠ¸ë¥¼ ìƒì„±
 			Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
-			// °ø°İÁÖ±â°¡ µÇ¾î¾ß °ø°İÇÒ ¼ö ÀÖµµ·Ï ÇÏ±â À§ÇØ ÇöÀç °ø°İ½Ã°£ ÀúÀå
+			// ê³µê²©ì£¼ê¸°ê°€ ë˜ì–´ì•¼ ê³µê²©í•  ìˆ˜ ìˆë„ë¡ í•˜ê¸° ìœ„í•´ í˜„ì¬ ê³µê²©ì‹œê°„ ì €ì¥
 			lastAttackTime = Time.time;
 		}
 	}

@@ -4,16 +4,16 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 	[SerializeField]
-	private	StageData	stageData;			// Àû »ı¼ºÀ» À§ÇÑ ½ºÅ×ÀÌÁö Å©±â Á¤º¸
+	private	StageData	stageData;			// ì  ìƒì„±ì„ ìœ„í•œ ìŠ¤í…Œì´ì§€ í¬ê¸° ì •ë³´
 	[SerializeField]
-	private	GameObject	enemyPrefab;		// º¹Á¦ÇØ¼­ »ı¼ºÇÒ Àû Ä³¸¯ÅÍ ÇÁ¸®ÆÕ
+	private	GameObject	enemyPrefab;		// ë³µì œí•´ì„œ ìƒì„±í•  ì  ìºë¦­í„° í”„ë¦¬íŒ¹
 	[SerializeField]
-	private	float		spawnCycleTime;		// »ı¼º ÁÖ±â
+	private	float		spawnCycleTime;		// ìƒì„± ì£¼ê¸°
 
 	private void Awake()
 	{
-		// StartCoroutine("Process"); ÄÚµå¿Í µ¿ÀÏ
-		// ¹®ÀÚ¿­·Î È£ÃâÇÏ¸é ¿ÀÅ¸·Î ÀÎÇØ ¿À·ù°¡ ¹ß»ıÇÒ ¼ö ÀÖ±â ¶§¹®¿¡ nameof() ¿¬»êÀÚ ÀÌ¿ë
+		// StartCoroutine("Process"); ì½”ë“œì™€ ë™ì¼
+		// ë¬¸ìì—´ë¡œ í˜¸ì¶œí•˜ë©´ ì˜¤íƒ€ë¡œ ì¸í•´ ì˜¤ë¥˜ê°€ ë°œìƒí•  ìˆ˜ ìˆê¸° ë•Œë¬¸ì— nameof() ì—°ì‚°ì ì´ìš©
 		StartCoroutine(nameof(Process));
 	}
 
@@ -21,19 +21,19 @@ public class EnemySpawner : MonoBehaviour
 	{
 		while ( true )
 		{
-			// Àû Ä³¸¯ÅÍ »ı¼º
+			// ì  ìºë¦­í„° ìƒì„±
 			SpawnEnemy();
 
-			// spawnCycleTime ½Ã°£µ¿¾È ´ë±â
+			// spawnCycleTime ì‹œê°„ë™ì•ˆ ëŒ€ê¸°
 			yield return new WaitForSeconds(spawnCycleTime);
 		}
 	}
 
 	private void SpawnEnemy()
 	{
-		// Àû Ä³¸¯ÅÍ°¡ »ı¼ºµÇ´Â x À§Ä¡´Â ½ºÅ×ÀÌÁö Å©±â ¹üÀ§ ³»¿¡¼­ ÀÓÀÇÀÇ °ªÀ» ¼±ÅÃ
+		// ì  ìºë¦­í„°ê°€ ìƒì„±ë˜ëŠ” x ìœ„ì¹˜ëŠ” ìŠ¤í…Œì´ì§€ í¬ê¸° ë²”ìœ„ ë‚´ì—ì„œ ì„ì˜ì˜ ê°’ì„ ì„ íƒ
 		float x = Random.Range(stageData.LimitMin.x, stageData.LimitMax.x);
-		// Àû Ä³¸¯ÅÍ »ı¼º (y À§Ä¡´Â ½ºÅ×ÀÌÁö »ó´Ü À§Ä¡ + 1)
+		// ì  ìºë¦­í„° ìƒì„± (y ìœ„ì¹˜ëŠ” ìŠ¤í…Œì´ì§€ ìƒë‹¨ ìœ„ì¹˜ + 1)
 		Instantiate(enemyPrefab, new Vector3(x, stageData.LimitMax.y + 1, 0), Quaternion.identity);
 	}
 }

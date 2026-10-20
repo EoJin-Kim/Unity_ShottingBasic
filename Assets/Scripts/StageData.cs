@@ -3,14 +3,14 @@ using UnityEngine;
 [CreateAssetMenu]
 public class StageData : ScriptableObject
 {
-	// ½ºÅ×ÀÌÁöÀÇ Å©±â(»óÇÏÁÂ¿ì ¹üÀ§)¸¦ limitMin, limitMax º¯¼ö¿¡ ÀúÀå
+	// ìŠ¤í…Œì´ì§€ì˜ í¬ê¸°(ìƒí•˜ì¢Œìš° ë²”ìœ„)ë¥¼ limitMin, limitMax ë³€ìˆ˜ì— ì €ì¥
 	[SerializeField]
 	private	Vector2	limitMin;
 	[SerializeField]
 	private	Vector2	limitMax;
 	
-	// ´Ù¸¥ Å¬·¡½º¿¡¼­´Â LimitMin, LimitMax ÇÁ·ÎÆÛÆ¼¸¦ ÅëÇØ
-	// ½ºÅ×ÀÌÁöÀÇ Å©±â¸¦ È®ÀÎÇÒ ¼ö ÀÖ´Ù.
+	// ë‹¤ë¥¸ í´ë˜ìŠ¤ì—ì„œëŠ” LimitMin, LimitMax í”„ë¡œí¼í‹°ë¥¼ í†µí•´
+	// ìŠ¤í…Œì´ì§€ì˜ í¬ê¸°ë¥¼ í™•ì¸í•  ìˆ˜ ìˆë‹¤.
 	public	Vector2	LimitMin => limitMin;
 	public	Vector2	LimitMax => limitMax;
 }

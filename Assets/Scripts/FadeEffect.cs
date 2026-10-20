@@ -17,10 +17,10 @@ public class FadeEffect : MonoBehaviour
 	{
 		while ( true )
 		{
-			// Alpha °ªÀ» 1¿¡¼­ 0À¸·Î : Fade Out
+			// Alpha ê°’ì„ 1ì—ì„œ 0ìœ¼ë¡œ : Fade Out
 			yield return StartCoroutine(OnFade(1, 0));
 
-			// Alpha °ªÀ» 0¿¡¼­ 1·Î : Fade In
+			// Alpha ê°’ì„ 0ì—ì„œ 1ë¡œ : Fade In
 			yield return StartCoroutine(OnFade(0, 1));
 		}
 	}
@@ -29,16 +29,16 @@ public class FadeEffect : MonoBehaviour
 	{
 		float percent = 0;
 
-		// fadeTime ½Ã°£µ¿¾È while() ¹İº¹¹® ½ÇÇà
+		// fadeTime ì‹œê°„ë™ì•ˆ while() ë°˜ë³µë¬¸ ì‹¤í–‰
 		while ( percent < 1 )
 		{
 			percent += Time.deltaTime / fadeTime;
 
-			// À¯´ÏÆ¼ÀÇ Å¬·¡½º¿¡ ¼³Á¤µÇ¾î ÀÖ´Â spriteRenderer.color, transform.position µîÀº ÇÁ·ÎÆÛÆ¼·Î
-			// spriteRenderer.color.a = 1.0f; °ú °°ÀÌ ¼³Á¤ÀÌ ºÒ°¡´ÉÇÏ´Ù.
-			// spriteRenderer.color = new Color(spriteRenderer.color.r, .., .., 1.0f); °ú °°ÀÌ ¼³Á¤ÇØ¾ß ÇÑ´Ù.
+			// ìœ ë‹ˆí‹°ì˜ í´ë˜ìŠ¤ì— ì„¤ì •ë˜ì–´ ìˆëŠ” spriteRenderer.color, transform.position ë“±ì€ í”„ë¡œí¼í‹°ë¡œ
+			// spriteRenderer.color.a = 1.0f; ê³¼ ê°™ì´ ì„¤ì •ì´ ë¶ˆê°€ëŠ¥í•˜ë‹¤.
+			// spriteRenderer.color = new Color(spriteRenderer.color.r, .., .., 1.0f); ê³¼ ê°™ì´ ì„¤ì •í•´ì•¼ í•œë‹¤.
 			
-			// ¶Ç´Â ¾Æ·¡¿Í °°ÀÌ º°µµÀÇ Color º¯¼ö¸¦ ¸¸µé¾î º¯¼ö °ªÀ» º¯°æÇÏ°í, spriteRenderer.color¿¡ º¯¼ö °ªÀ» ÀúÀåÇÑ´Ù.
+			// ë˜ëŠ” ì•„ë˜ì™€ ê°™ì´ ë³„ë„ì˜ Color ë³€ìˆ˜ë¥¼ ë§Œë“¤ì–´ ë³€ìˆ˜ ê°’ì„ ë³€ê²½í•˜ê³ , spriteRenderer.colorì— ë³€ìˆ˜ ê°’ì„ ì €ì¥í•œë‹¤.
 			Color color = spriteRenderer.color;
 			color.a = Mathf.Lerp(start, end, percent);
 			spriteRenderer.color = color;

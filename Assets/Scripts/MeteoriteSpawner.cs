@@ -4,20 +4,20 @@ using UnityEngine;
 public class MeteoriteSpawner : MonoBehaviour
 {
 	[SerializeField]
-	private	StageData	stageData;				// °æ°í¼±/¿î¼® »ı¼ºÀ» À§ÇÑ ½ºÅ×ÀÌÁö Å©±â Á¤º¸
+	private	StageData	stageData;				// ê²½ê³ ì„ /ìš´ì„ ìƒì„±ì„ ìœ„í•œ ìŠ¤í…Œì´ì§€ í¬ê¸° ì •ë³´
 	[SerializeField]
-	private	GameObject	alertLinePrefab;		// º¹Á¦ÇØ¼­ »ı¼ºÇÒ °æ°í¼± ÇÁ¸®ÆÕ
+	private	GameObject	alertLinePrefab;		// ë³µì œí•´ì„œ ìƒì„±í•  ê²½ê³ ì„  í”„ë¦¬íŒ¹
 	[SerializeField]
-	private	GameObject	meteoritePrefab;		// º¹Á¦ÇØ¼­ »ı¼ºÇÒ ¿î¼® ÇÁ¸®ÆÕ
+	private	GameObject	meteoritePrefab;		// ë³µì œí•´ì„œ ìƒì„±í•  ìš´ì„ í”„ë¦¬íŒ¹
 	[SerializeField]
-	private	float		minSpawnCycleTime = 1;	// ÃÖ¼Ò »ı¼º ÁÖ±â
+	private	float		minSpawnCycleTime = 1;	// ìµœì†Œ ìƒì„± ì£¼ê¸°
 	[SerializeField]
-	private	float		maxSpawnCycleTime = 4;  // ÃÖ´ë »ı¼º ÁÖ±â
+	private	float		maxSpawnCycleTime = 4;  // ìµœëŒ€ ìƒì„± ì£¼ê¸°
 
 	private void Awake()
 	{
-		// StartCoroutine("Process"); ÄÚµå¿Í µ¿ÀÏ
-		// ¹®ÀÚ¿­·Î È£ÃâÇÏ¸é ¿ÀÅ¸·Î ÀÎÇØ ¿À·ù°¡ ¹ß»ıÇÒ ¼ö ÀÖ±â ¶§¹®¿¡ nameof() ¿¬»êÀÚ ÀÌ¿ë
+		// StartCoroutine("Process"); ì½”ë“œì™€ ë™ì¼
+		// ë¬¸ìì—´ë¡œ í˜¸ì¶œí•˜ë©´ ì˜¤íƒ€ë¡œ ì¸í•´ ì˜¤ë¥˜ê°€ ë°œìƒí•  ìˆ˜ ìˆê¸° ë•Œë¬¸ì— nameof() ì—°ì‚°ì ì´ìš©
 		StartCoroutine(nameof(Process));
 	}
 
@@ -25,24 +25,24 @@ public class MeteoriteSpawner : MonoBehaviour
 	{
 		while ( true )
 		{
-			// ´ë±â ½Ã°£ ¼³Á¤ (minSpawnCycleTime ~ maxSpawnCycleTime)
+			// ëŒ€ê¸° ì‹œê°„ ì„¤ì • (minSpawnCycleTime ~ maxSpawnCycleTime)
 			float spawnCycleTime = Random.Range(minSpawnCycleTime, maxSpawnCycleTime);
-			// spawnCycleTime ½Ã°£µ¿¾È ´ë±â
+			// spawnCycleTime ì‹œê°„ë™ì•ˆ ëŒ€ê¸°
 			yield return new WaitForSeconds(spawnCycleTime);
 
-			// °æ°í¼±/¿î¼®ÀÌ »ı¼ºµÇ´Â x À§Ä¡´Â ½ºÅ×ÀÌÁö Å©±â ¹üÀ§ ³»¿¡¼­ ÀÓÀÇÀÇ °ªÀ» ¼±ÅÃ
+			// ê²½ê³ ì„ /ìš´ì„ì´ ìƒì„±ë˜ëŠ” x ìœ„ì¹˜ëŠ” ìŠ¤í…Œì´ì§€ í¬ê¸° ë²”ìœ„ ë‚´ì—ì„œ ì„ì˜ì˜ ê°’ì„ ì„ íƒ
 			float x = Random.Range(stageData.LimitMin.x, stageData.LimitMax.x);
 
-			// °æ°í¼± ¿ÀºêÁ§Æ® »ı¼º
+			// ê²½ê³ ì„  ì˜¤ë¸Œì íŠ¸ ìƒì„±
 			GameObject alertLineClone = Instantiate(alertLinePrefab, new Vector3(x, 0, 0), Quaternion.identity);
 			
-			// 1ÃÊ ´ë±â ÈÄ
+			// 1ì´ˆ ëŒ€ê¸° í›„
 			yield return new WaitForSeconds(1);
 			
-			// °æ°í¼± ¿ÀºêÁ§Æ® »èÁ¦
+			// ê²½ê³ ì„  ì˜¤ë¸Œì íŠ¸ ì‚­ì œ
 			Destroy(alertLineClone);
 
-			// ¿î¼® ¿ÀºêÁ§Æ® »ı¼º (y À§Ä¡´Â ½ºÅ×ÀÌÁö »ó´Ü À§Ä¡ + 1)
+			// ìš´ì„ ì˜¤ë¸Œì íŠ¸ ìƒì„± (y ìœ„ì¹˜ëŠ” ìŠ¤í…Œì´ì§€ ìƒë‹¨ ìœ„ì¹˜ + 1)
 			Instantiate(meteoritePrefab, new Vector3(x, stageData.LimitMax.y + 1, 0), Quaternion.identity);
 		}
 	}

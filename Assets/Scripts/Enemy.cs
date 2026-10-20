@@ -4,10 +4,10 @@ public class Enemy : MonoBehaviour
 {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		// Àû Ä³¸¯ÅÍ¿Í Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®ÀÇ ÅÂ±×°¡ "Player"ÀÌ¸é
+		// ì  ìºë¦­í„°ì™€ ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ì˜ íƒœê·¸ê°€ "Player"ì´ë©´
 		if ( collision.CompareTag("Player") )
 		{
-			// Àû Ä³¸¯ÅÍ »èÁ¦
+			// ì  ìºë¦­í„° ì‚­ì œ
 			Destroy(gameObject);
 		}
 	}

@@ -5,7 +5,7 @@ public class DestroyByPosition : MonoBehaviour
 	[SerializeField]
 	private	StageData	stageData;
 
-	// È­¸é ¹Û ÀÏÁ¤ ¹üÀ§¸¦ ¹ş¾î³µÀ» ¶§ »èÁ¦ÇÏ±â À§ÇÑ °¡ÁßÄ¡ °ª
+	// í™”ë©´ ë°– ì¼ì • ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ì„ ë•Œ ì‚­ì œí•˜ê¸° ìœ„í•œ ê°€ì¤‘ì¹˜ ê°’
 	private	float		destroyWeight = 2;
 
 	private void LateUpdate()
